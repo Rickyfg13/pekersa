@@ -23,12 +23,16 @@
         <form action="{{route('store.pra')}}" class="custom-form" method="POST" enctype="multipart/form-data"> 
           @csrf
           <!-- Email Input start -->
+          <input type="hidden" name="id_jenis" value="5">
+
           <div class="input-box">
-            <select name="id_jenis" id="" class="form-control" placeholder="">
-                <option value="">Pilih Jenis Pengaduan</option>
-                @foreach($jenis as $data)
-                  <option value="{{$data->id_jenis}}">{{$data->jenis}}</option>
-                @endforeach
+            <select name="property" id="" class="form-control" placeholder="">
+                <option value="">--Pilih Property ---</option>
+                <option value="Instalasi Listrik">Instalasi Listrik</option>
+                <option value="Air">Air</option>
+                <option value="Bangunan">Bangunan</option>
+                <option value="Ruang Terbuka">Ruang Terbuka</option>
+               
             </select>
           </div>
           <div class="form-group">
@@ -68,13 +72,9 @@
           @endif
           <button type="submit" class="btn-solid">Kirim</button>
         </form>
-        <!-- Login Form End -->
-
-        <!-- Social Section Start -->
-        
-        <!-- Social Section End -->
+    
       </section>
-      <!-- Login Section End -->
-    </main>
+   
+</main>
     <!-- Main End -->
 @endsection('content')

@@ -10,19 +10,34 @@ use Illuminate\Support\Facades\DB;
 
 class PengaduanController extends Controller
 {
-    public function index()
+    public function index($id)
     {
-        $jenis = DB::table('jenis')->get();
-        return view('user.pengaduan', compact('jenis'));
+    //     $jenis = DB::table('jenis')->get();
+    //     return view('user.pengaduan', compact('jenis'));
+        $id_jenis = $id;
+		$jenis =  DB::table('jenis')
+			->where('id_jenis', $id)
+			->select('id_jenis','jenis')
+			->get();
+        // dd($jenis);
+        if($id == 4){
+            return view('user.pengaduan', compact('jenis', 'id_jenis'));
+        } elseif($id == 5){
+            return view('user.pengaduan.prasarana.index', compact('jenis', 'id_jenis'));
+        } else{
+           return view('user.pengaduan.khatibmas.index', compact('jenis', 'id_jenis'));
+        }
+       
     }
 
     public function store(Request $request)
-    {
+    {   
         $validation = $request->validate([
-            
             
             'id_jenis' => 'required',
             'lokasi' => 'required',
+            'nama_alat'=>'required',
+            'property' => 'required',
             'tanggal' => 'required',
             'merk' => 'required',
             'deskripsi' => 'required',
@@ -41,6 +56,8 @@ class PengaduanController extends Controller
             ->insertGetId([
                 'id_pelapor' => Session::get('id_user'),
                 'id_jenis' =>$request->id_jenis,
+                'property' =>$request->property,
+                'nama_alat' =>$request->nama_alat,
                 'merk' => $request->merk,
                 'lokasi' => $request->lokasi,
                 'foto' =>$imageaduan,
@@ -69,6 +86,7 @@ class PengaduanController extends Controller
             } else {
                  return redirect()->route('history')->with('error','Gagal');
             }
+       
     }
     
 
@@ -92,6 +110,7 @@ class PengaduanController extends Controller
             
             'tipe' => 'required',
             'id_jenis' => 'required',
+            'property' => 'required',
             'merk' => 'required',
             'lokasi' => 'required',
             'tanggal' => 'required',
@@ -112,6 +131,7 @@ class PengaduanController extends Controller
             ->insertGetId([
                 'id_pelapor' => Session::get('id_user'),
                 'id_jenis' =>$request->id_jenis,
+                'property' =>$request->property,
                 'tipe' => $request->tipe,
                 'merk' => $request->merk,
                 'lokasi' => $request->lokasi,
@@ -180,6 +200,7 @@ class PengaduanController extends Controller
         $validation = $request->validate([
             'tanggal' => 'required',
             'id_jenis' => 'required',
+            'property' => 'required',
             'lokasi' => 'required',
             'tipe' => 'required',
             'foto' => 'required|mimes:jpeg,png',
@@ -198,6 +219,7 @@ class PengaduanController extends Controller
                 'id_pelapor' => Session::get('id_user'),
                 'tanggal' =>$request->tanggal,
                 'id_jenis' =>$request->id_jenis,
+                'property' =>$request->property,
                 'tipe' =>$request->tipe,
                 'lokasi' => $request->lokasi,
                 'foto' =>$imageaduan,

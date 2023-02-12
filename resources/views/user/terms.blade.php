@@ -11,6 +11,16 @@
             Politeknik ATI Padang. Dengan ini pelapor menyatakan telah melakukan usaha perbaikan 
             semaksimal mungkin dan belum berhasil sehingga membutuhkan tindak lanjut.
         </p>
+    
+    
+       <p class="text-center">
+        <input class="form-check-input center" type="checkbox" value="" id="flexCheckDefault">
+       </p>
+       
+        
+      
+    
+        
         <div class="position-absolute top-300 start-50 translate-middle" style="margin-top: 80px;">
             <a href="{{ route('loginuser') }}" class="btn btn-outline-secondary " >Checklist</a>
         </div>

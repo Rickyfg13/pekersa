@@ -19,7 +19,7 @@ Route::get('/admin', function () {
 
 Route::post('login', 'Autentikasi\LoginController@login')->name('login');
 Route::get('logout', 'Autentikasi\LoginController@logout')->name('logout');
-Route::get('dashboard', 'Admin\NotifController@index')->name('home')->middleware('CekLoginMiddleware');
+Route::get('dashboard', 'Admin\HomeController@index')->name('home')->middleware('CekLoginMiddleware');
 
 //master pelapor
 Route::get('datapelapor', 'Admin\PelaporController@index')->name('pelapor')->middleware('CekLoginMiddleware');
@@ -78,7 +78,8 @@ Route::post('tambahprogress/{id_laporan}', 'User\PengaduanController@addprogress
 
 //pengaduan
 //sarana
-Route::get('pengaduan', 'User\PengaduanController@index')->name('pengaduan')->middleware('LoginUserMiddleware');
+// Route::get('pengaduan', 'User\PengaduanController@index')->name('pengaduan')->middleware('LoginUserMiddleware');
+Route::get('pengaduan/{id}', 'User\PengaduanController@index')->name('pengaduan')->middleware('LoginUserMiddleware');
 Route::post('addpengaduan', 'User\PengaduanController@store')->name('store.pengaduan')->middleware('LoginUserMiddleware');
 
 //prasarana

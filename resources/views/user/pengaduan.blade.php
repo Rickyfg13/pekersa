@@ -2,10 +2,12 @@
 @section('title', 'Web Pengaduan ATIP - Form Pengaduan')
 @section('content')
 
-
     <main class="main-wrap login-page mb-xxl">
+
         <p class="font-sm content-color">Laporan Pengaduan Sarana</p>
-       
+
+
+
         <!-- Login Section Start -->
         <section class="login-section p-0">
             <!-- Login Form Start -->
@@ -25,25 +27,34 @@
             <form action="{{ route('store.pengaduan') }} " class="custom-form" method="POST" enctype="multipart/form-data">
                 @csrf
                 <!-- Email Input start -->
+                <input type="hidden" name="id_jenis" value="4">
+
+                
                 <div class="input-box">
-                    <select name="id_jenis"  class="form-control" placeholder="">
-                        <option value="">Pilih Jenis Pengaduan</option>
-                        @foreach ($jenis as $data)
-                            <option value="{{ $data->id_jenis }}">{{ $data->jenis }}</option>
-                        @endforeach
+                    <select name="property" class="form-control" placeholder="">
+                        <option value="">--Pilih Property--</option>
+                        <option value="Printer">Printer</option>
+                        <option value="AC">AC</option>
+                        <option value="LCD Proyektor">LCD Proyektor</option>
+                        <option value="Peralatan Pratikum"><a href="#">Peralatan Pratikum</a></option>
+                        {{-- <option ><a href="{{ route('loginuser') }}">Peralatan Pratikum</a></option> --}}
                     </select>
                 </div>
+
+
                 <div class="form-group">
-                    <input type="date" id="demo" class="form-control mb-3" name="tanggal">
+                    <input  id="demo" placeholder="Masukan Nama Alat" class="form-control mb-3"
+                        name="nama_alat">
+                </div>
+                <div class="form-group">
+                    <input type="date" id="demo" placeholder="Masukan Tanggal" class="form-control mb-3"
+                        name="tanggal">
                 </div>
 
                 <div class="form-group">
                     <input type="Text" class="form-control mb-3" name="lokasi" placeholder="Lokasi Kerusakan">
                 </div>
 
-                <!-- Email Input End -->
-
-                <!-- Password Input start -->
 
                 <div class="input-box">
                     <input name="merk" class="form-control" placeholder="Merk Barang"></input>
@@ -53,7 +64,7 @@
                 </div>
 
                 <div class="input-box">
-                    <input type="file" placeholder="foto" required class="form-control" name="foto" />
+                    <input type="file" placeholder="upload Foto" required class="form-control" name="foto" />
                 </div>
                 <!-- Password Input End -->
                 @if (session('message'))
@@ -82,12 +93,14 @@
         </section>
         <!-- Login Section End -->
     </main>
-    <!-- Main End -->
-  
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-            https://firebase.google.com/docs/web/setup#available-libraries -->
 
-            
+
+    <!-- Main End -->
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+                    https://firebase.google.com/docs/web/setup#available-libraries -->
+
+
 
 
 @endsection

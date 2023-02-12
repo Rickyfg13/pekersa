@@ -23,14 +23,7 @@
         <form action="{{route('store.kha')}}" class="custom-form" method="POST" enctype="multipart/form-data"> 
           @csrf
           <!-- Email Input start -->
-          <div class="input-box">
-            <select name="id_jenis" id="" class="form-control" placeholder="">
-                <option value="">Pilih Jenis Pengaduan</option>
-                @foreach($jenis as $data)
-                  <option value="{{$data->id_jenis}}">{{$data->jenis}}</option>
-                @endforeach
-            </select>
-          </div>
+          <input type="hidden" name="id_jenis" value="6">
           <div class="form-group">
             <input type="Text" class="form-control mb-3" name="lokasi" placeholder="Lokasi Kerusakan">
           </div>
@@ -46,7 +39,7 @@
          
          
           <div class="form-group">
-            <input type="time" class="form-control mb-3" name="waktu" >
+            <input type="input" placeholder="Masukan jam kejadian..." class="form-control mb-3" name="waktu" >
           </div>
           <!-- Password Input start -->
       
@@ -73,6 +66,6 @@
         <!-- Social Section End -->
       </section>
       <!-- Login Section End -->
-    </main>
+</main>
     <!-- Main End -->
 @endsection('content')

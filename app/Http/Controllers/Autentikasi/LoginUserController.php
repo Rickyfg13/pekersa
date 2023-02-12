@@ -38,13 +38,14 @@ class LoginUserController extends Controller
                    
               if(Session::get('role') == 1)
               {
-                $data = DB::table('jenis')->get();
+                $jenis = DB::table('jenis')->get();
                 $data = DB::table('user')
                 ->where('role',1)
                 ->update([
                 'fcm_token' => $request->fcm_token
             ]);
-                return view('user.index', compact('data'));
+                
+                return view('user.index', compact('data','jenis'));
               }
 
               if(Session::get('role') == 3)

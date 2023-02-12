@@ -10,7 +10,7 @@
         <li class="footer-item">
           <a href="{{route('history')}}" class="footer-link">
             <i class="iconly-Category icli"></i>
-            <span>History</span>
+            <span>Status</span>
           </a>
         </li>
         <li class="footer-item">
