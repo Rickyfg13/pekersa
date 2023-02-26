@@ -22,7 +22,7 @@
     
         
         <div class="position-absolute top-300 start-50 translate-middle" style="margin-top: 80px;">
-            <a href="{{ route('loginuser') }}" class="btn btn-outline-secondary " >Checklist</a>
+            <a href="{{ route('loginuser') }}" class="btn btn-outline-secondary " >Setuju</a>
         </div>
           
     </section>

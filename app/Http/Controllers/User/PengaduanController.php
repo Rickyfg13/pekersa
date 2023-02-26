@@ -72,16 +72,15 @@ class PengaduanController extends Controller
                 'keterangan' => "Mulai"
             ]);
 
-            // SendNotif::
-            // Notification::send($data,new SendPushNotification($id_jenis,$deskripsi,$fcmTokens));
+      
             if($data)
             {
-                 return redirect()->route('history')
-                 ->with('success','"Laporan Pengaduan telah disimpan dengan nomor 2022.10.01.001 
-                 (tahun.bulan.tanggal.nomor urut maksimal 100),
-                 Cek pada menu Status Laporan”
-                 ' )
-                 ;
+            return redirect()->route('history')
+            ->with('success','
+            "Laporan Pengaduan telah disimpan 
+             dengan nomor 2022.10.01.001 
+             Cek pada menu Status Laporan”'
+             );
            
             } else {
                  return redirect()->route('history')->with('error','Gagal');

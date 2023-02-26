@@ -83,23 +83,40 @@
                     </div>
                 @endif
 
-                <button type="submit" class="btn-solid">Kirim</button>
+                <button type="submit" class="btn-solid show_confirm">Kirim</button>
             </form>
-            <!-- Login Form End -->
-
-            <!-- Social Section Start -->
-
-            <!-- Social Section End -->
         </section>
-        <!-- Login Section End -->
     </main>
 
+    <script>
+        $('.show_confirm').click(function(event) {
+          var form =  $(this).closest("form");
+          var name = $(this).data("name");
+          event.preventDefault();
+          Swal.fire({
+                title: 'Apakah Anda Yakin?',
+                text: "Anda Akan Mengirim Laporan!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, kirim!'
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  Swal.fire(
+                    'Deleted!',
+                    '"Laporan Pengaduan telah disimpan 
+                    dengan nomor 2022.10.01.001 
+                    Cek pada menu Status Laporan”',
+                    'success'
+                  )
+                }
+              });
+      });
 
-    <!-- Main End -->
 
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-                    https://firebase.google.com/docs/web/setup#available-libraries -->
-
+       
+    </script>
 
 
 

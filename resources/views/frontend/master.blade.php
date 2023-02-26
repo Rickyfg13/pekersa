@@ -35,6 +35,7 @@
 
     <!-- Style css -->
     <link rel="stylesheet" id="change-link" type="text/css" href="{{asset('frontend/css/style.css')}}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.min.css" integrity="sha256-sWZjHQiY9fvheUAOoxrszw9Wphl3zqfVaz1kZKEvot8=" crossorigin="anonymous">
   </head>
 
   <body>
@@ -66,6 +67,6 @@
 
 <!-- Script js -->
 <script src="{{asset('frontend/js/script.js')}}"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.all.min.js" integrity="sha256-5WYg3s9NxGKR2MpEBTy0QMT3Gvgxl3yKjbW4l0CfUUY=" crossorigin="anonymous"></script>
   </body>
   </html>
